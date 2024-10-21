@@ -1,0 +1,1 @@
+export const baseUrl = 'https://rule-engine-backend-t44d.onrender.com'

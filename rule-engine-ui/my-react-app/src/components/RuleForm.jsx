@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useSnackbar } from 'notistack';
 import '../index.css';
+import { baseUrl } from '../urls';
 
 const RuleForm = () => {
     const [ruleString, setRuleString] = useState('');
@@ -22,7 +23,7 @@ const RuleForm = () => {
     useEffect(() => {
         const fetchRules = async () => {
             try {
-                const response = await axios.get('http://localhost:3000/api/rules/get_rule');
+                const response = await axios.get(`${baseUrl}/api/rules/get_rule`);
                 setRules(response.data);
             } catch (error) {
                 enqueueSnackbar('Error fetching rules', { variant: 'error' });
@@ -92,12 +93,12 @@ const RuleForm = () => {
         try {
             if (editMode) {
                 // Update existing rule
-                const response = await axios.put(`http://localhost:3000/api/rules/update_rule/${currentRuleId}`, { ruleString });
+                const response = await axios.put(`${baseUrl}/api/rules/update_rule/${currentRuleId}`, { ruleString });
                 enqueueSnackbar('Rule updated successfully', { variant: 'success' });
                 setRules(rules.map(rule => (rule._id === currentRuleId ? response.data : rule)));
             } else {
                 // Create new rule
-                const response = await axios.post('http://localhost:3000/api/rules/create_rule', { ruleString });
+                const response = await axios.post(`${baseUrl}/api/rules/create_rule`, { ruleString });
                 enqueueSnackbar('Rule created successfully', { variant: 'success' });
                 setRules(prevRules => [...prevRules, response.data]);
             }
@@ -112,7 +113,7 @@ const RuleForm = () => {
 //deleterule
     const handleDeleteRule = async (ruleId) => {
         try {
-            await axios.delete(`http://localhost:3000/api/rules/delete_rule/${ruleId}`);
+            await axios.delete(`${baseUrl}/api/rules/delete_rule/${ruleId}`);
             setRules(rules.filter(rule => rule._id !== ruleId));
             enqueueSnackbar('Rule deleted successfully', { variant: 'success' });
         } catch (error) {
@@ -136,7 +137,7 @@ const RuleForm = () => {
         }
 
         try {
-            const response = await axios.post('http://localhost:3000/api/rules/evaluate_rule', {
+            const response = await axios.post(`${baseUrl}/api/rules/evaluate_rule`, {
                 ruleIds: selectedRuleIds,
                 combineOperator,
                 userData
