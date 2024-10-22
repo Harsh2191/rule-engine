@@ -36,10 +36,10 @@ Located in the `rule-engine` folder.
 - Deployed on **Render**.
 - Provides REST APIs to:
   - Create, update, and delete rules.
-  - Evaluate rules based on user input data.
-  - Parse rule strings into an AST (tokenization, parsing).
-  - Evaluate user attributes against the parsed AST.
-  - Combine multiple rule strings into a single AST for evaluation.
+  -  Rest Apis to Evaluate rules based on user input data.
+  -  function to Parse rule strings into an AST (tokenization, parsing).
+  -  evaluateAst function to Evaluate user attributes against the parsed AST.
+  -  logic to Combine list of  rule strings into a single AST for evaluation.
 
 ### 3. **Database**
 - **MongoDB** is used for storing rule strings and metadata.
