@@ -5,6 +5,7 @@ This project implements a 3-tier rule engine application to determine user eligi
 
 ## Project Deployed Link:
 - running application click here->[Live link](https://rule-engine-frontend-fawn.vercel.app/)
+(wait a bit for the system to get load and become functional some time it takes time)
 
 ## Features Implemented
 - **AST Representation:** Dynamically creates an AST from rule strings, supporting complex logical conditions.
