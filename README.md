@@ -14,15 +14,16 @@ This project implements a 3-tier rule engine application to determine user eligi
 - **Rule Management:** Create, update, delete, and combine rules dynamically.
 - **Dynamic Inputs:** Input user attributes and check eligibility based on the created rules.
 - **Implemented Bonus Features:**
-  - Error handling for invalid rule strings and data formats.
+  - Error handling for invalid rule strings and data formats(like missing operators , invalid comparison and balanced parenthesis)
   - Attribute validation against a catalog.
   - Modify existing rules (change operators, values, or expressions).
+  - handling input valiadtion for each input with proper notification dispalyed on screen
 
 ## Project Architecture
 
 ### 1. **Frontend**
 Located in the `rule-engine-ui` folder.
-- Developed using **ReactJS**.
+- Developed using **ReactJS Tailwindcss**.
 - Deployed on **Vercel**.
 - Key functionalities:
   - Rule creation, modification, and deletion.
@@ -43,7 +44,7 @@ Located in the `rule-engine` folder.
   -  logic to Combine list of  rule strings into a single AST for evaluation.
 
 ### 3. **Database**
-- **MongoDB** is used for storing rule strings and metadata.
+- **MongoDB** is used for storing rule strings, AST and metadata.
 
 ---
 
